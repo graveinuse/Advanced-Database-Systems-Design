@@ -1,0 +1,93 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<div class="homepage-bg d-flex flex-column justify-content-center align-items-center text-center">
+  <h2 class="display-5 fw-bold text-white">Explore Our Tasty Menu!</h2>
+  <p class="lead text-white">Fresh ingredients, bold flavors.</p>
+
+  <!-- Footer Quote -->
+  <!-- <p class="mt-4 fst-italic text-warning fs-5">అన్నదానం మహాదానం 🍛</p> -->
+
+
+  <div class="container mt-5">
+    <h3 class="text-white text-center mb-4">Special Menu</h3>
+    <div class="row g-4 justify-content-center">
+  
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/biryani.jpg') }}" class="card-img-top" alt="Biryani">
+          <div class="card-body">
+            <h5 class="card-title">Hyderabadi Biryani</h5>
+            <p class="card-text">Aromatic, spicy, and rich — the heart of our feast.</p>
+            {% if session.get('username') %}
+            <!-- <form method="POST" action="/add_to_cart">
+              <input type="hidden" name="item_name" value="Chicken Biryani">
+              <input type="hidden" name="price" value="200">
+              <input type="hidden" name="image" value="{{ url_for('static', filename='images/masala-dosa.jpg') }}">
+              <input type="hidden" name="description" value="Delicious crispy dosa filled with spiced potato.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form> -->
+            
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/dosa.jpg') }}" class="card-img-top" alt="Dosa">
+          <div class="card-body">
+            <h5 class="card-title">Masala Dosa</h5>
+            <p class="card-text">Golden crisp dosa with perfectly spiced potato masala.</p>
+            {% if session.get('username') %}
+            <!-- <form method="POST" action="/add_to_cart">
+              <input type="hidden" name="item_name" value="Masala Dosa">
+              <input type="hidden" name="price" value="200">
+              <input type="hidden" name="image" value="{{ url_for('static', filename='images/masala-dosa.jpg') }}">
+              <input type="hidden" name="description" value="Delicious crispy dosa filled with spiced potato.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form> -->
+            
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+  
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/sweets.jpg') }}" class="card-img-top" alt="Sweets">
+          <div class="card-body">
+            <h5 class="card-title">Desi Sweets</h5>
+            <p class="card-text">Traditional sweets to complete your meal with love.</p>
+            {% if session.get('username') %}
+            <!-- <form method="POST" action="/add_to_cart">
+              <input type="hidden" name="item_name" value="Desi Sweets">
+              <input type="hidden" name="price" value="200">
+              <input type="hidden" name="image" value="{{ url_for('static', filename='images/masala-dosa.jpg') }}">
+              <input type="hidden" name="description" value="Delicious crispy dosa filled with spiced potato.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form> -->
+            
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+          </div>
+        </div>
+      </div>
+  
+    </div>
+  </div>
+  
+</div>
+
+{% endblock %}

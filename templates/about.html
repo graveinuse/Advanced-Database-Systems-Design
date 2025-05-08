@@ -1,0 +1,76 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<!-- Hero Section -->
+<section class="hero-banner text-center py-5 text-light" style="color: black;">
+  <h1 class="display-5 fw-bold">Welcome to విందు భోజనం</h1>
+  <p class="lead">Preserving the tradition, one dish at a time.</p>
+</section>
+
+<!-- About Section -->
+<section class="about-section py-5">
+  <div class="container" style="color: black;">
+    <div class="row align-items-center">
+
+      <!-- Image Column -->
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <img src="{{ url_for('static', filename='images/about-us.png') }}" alt="About Us" class="img-fluid rounded shadow">
+      </div>
+
+      <!-- Text Column -->
+      <div class="col-lg-6">
+
+        <!-- Translate Button -->
+        <button id="toggleTranslate" class="btn btn-outline-dark btn-sm mb-3">🔁 Translate to English</button>
+
+        <!-- Telugu Content -->
+        <div id="teluguContent">
+          <h2 class="mb-3 fw-bold text-dark">విందు భోజనం గురించి</h2>
+          <p>
+            "విందు భోజనం" అనే ఈ ప్రాజెక్ట్ భారతీయ సంప్రదాయ వంటకాలపై ఆధారపడి ఉంటుంది. ప్రతి భోజనం వెనుక ఒక సంస్కృతి, ఒక చరిత్ర ఉంటుంది — మేము దీన్ని డిజిటల్‌గా తీసుకురావడం మా లక్ష్యం.
+          </p>
+          <p>
+            మా వెబ్ యాప్‌లో మీరు వర్గాలవారీగా వంటకాలను అన్వేషించవచ్చు, ఆర్డర్ చేయవచ్చు, లేదా మీకు నచ్చిన వంటకాలను జాబితాలో చేర్చుకోవచ్చు. ఇది ఒక వంటల ప్రపంచాన్ని అన్వేషించే ప్రయాణం.
+          </p>
+          <p class="telugu-quote fst-italic text-warning mt-4">
+            “అన్నం పరబ్రహ్మ స్వరూపం”
+          </p> 
+        </div>
+
+        <!-- English Translation (hidden by default) -->
+        <div id="englishContent" style="display: none;">
+          <h2 class="mb-3 fw-bold text-dark">About Vindhu Bhojanam</h2>
+          <p>
+            "Vindhu Bhojanam" is a project based on the richness of Indian traditional cuisine. Every meal carries with it a culture and history — our mission is to bring that experience digitally.
+          </p>
+          <p>
+            In our web app, you can explore dishes by category, place orders the ones you love. It’s a journey into the world of culinary heritage.
+          </p>
+          <p class="fst-italic text-warning mt-4">
+            “Food is the form of the Supreme” 🍛
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<script>
+    const toggleBtn = document.getElementById("toggleTranslate");
+    const teluguDiv = document.getElementById("teluguContent");
+    const englishDiv = document.getElementById("englishContent");
+  
+    toggleBtn.addEventListener("click", () => {
+      const isTeluguVisible = teluguDiv.style.display !== "none";
+  
+      teluguDiv.style.display = isTeluguVisible ? "none" : "block";
+      englishDiv.style.display = isTeluguVisible ? "block" : "none";
+      
+      toggleBtn.innerText = isTeluguVisible ? "🔁 తెలుగు లో చూడండి" : "🔁 Translate to English";
+    });
+  </script>
+  
+
+  {% endblock %}

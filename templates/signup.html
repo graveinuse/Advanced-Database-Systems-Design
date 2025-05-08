@@ -1,0 +1,26 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<!-- Signup Background Wrapper -->
+<div class="signup-background d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+  <!-- Glassmorphic Signup Card -->
+  <div class="glass-card p-4 rounded-4" style="max-width: 500px; width: 100%;">
+    <h2 class="text-center mb-4">Create an Account</h2>
+    
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" required>
+      </div>
+      <div class="mb-3">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" required>
+      </div>
+      <button type="submit" class="btn btn-primary w-100">Sign Up</button>
+    </form>
+  </div>
+
+</div>
+
+{% endblock %}

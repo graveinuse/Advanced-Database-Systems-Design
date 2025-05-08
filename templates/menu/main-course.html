@@ -1,0 +1,85 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<div class="menu-section">
+  <h2 class="text-center my-4">🍛 Main Course</h2>
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Paneer Butter Masala -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/main_course/paneer_butter_masala.jpg') }}" class="card-img-top" alt="Paneer Butter Masala">
+          <div class="card-body">
+            <h5 class="card-title">Paneer Butter Masala</h5>
+            <p class="card-text">Creamy tomato-based curry with soft paneer cubes, rich and flavorful.</p>
+            {% if session.get('username') %}
+            <form method="POST" action="{{ url_for('add_to_cart') }}">
+              <input type="hidden" name="item_name" value="Paneer Butter Masala">
+              <input type="hidden" name="price" value="180">
+              <input type="hidden" name="image" value="images/main_course/paneer_butter_masala.jpg">
+              <input type="hidden" name="description" value="Creamy tomato-based curry with soft paneer cubes, rich and flavorful.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form>
+            {% else %}
+            <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Chicken Curry -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/main_course/chicken_curry.jpg') }}" class="card-img-top" alt="Chicken Curry">
+          <div class="card-body">
+            <h5 class="card-title">Chicken Curry</h5>
+            <p class="card-text">Spicy and aromatic chicken curry made with traditional Indian spices.</p>
+            {% if session.get('username') %}
+            <form method="POST" action="{{ url_for('add_to_cart') }}">
+              <input type="hidden" name="item_name" value="Chicken Curry">
+              <input type="hidden" name="price" value="200">
+              <input type="hidden" name="image" value="images/main_course/chicken_curry.jpg">
+              <input type="hidden" name="description" value="Spicy and aromatic chicken curry made with traditional Indian spices.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form>
+            {% else %}
+            <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Dal Tadka -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/main_course/dal_tadka.jpg') }}" class="card-img-top" alt="Dal Tadka">
+          <div class="card-body">
+            <h5 class="card-title">Dal Tadka</h5>
+            <p class="card-text">Yellow lentils tempered with garlic, cumin and ghee — a simple classic!</p>
+            {% if session.get('username') %}
+            <form method="POST" action="{{ url_for('add_to_cart') }}">
+              <input type="hidden" name="item_name" value="Dal Tadka">
+              <input type="hidden" name="price" value="120">
+              <input type="hidden" name="image" value="images/main_course/dal_tadka.jpg">
+              <input type="hidden" name="description" value="Yellow lentils tempered with garlic, cumin and ghee — a simple classic!">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form>
+            {% else %}
+            <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

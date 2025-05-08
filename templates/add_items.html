@@ -1,0 +1,66 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container py-4">
+  <h2 class="mb-4">Add New Menu Item</h2>
+  <form method="POST">
+    <div class="mb-3">
+      <label class="form-label">Name:</label>
+      <input type="text" name="name" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Category:</label>
+      <input type="text" name="category" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Price:</label>
+      <input type="number" step="0.01" name="price" class="form-control" required>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Description:</label>
+      <textarea name="description" class="form-control" rows="3"></textarea>
+    </div>
+
+    <div class="mb-3">
+      <label class="form-label">Image Path (inside static/images/):</label>
+      <input type="text" name="image" placeholder="e.g., images/biryani.jpg" class="form-control" required>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Add Item</button>
+  </form>
+</div>
+
+<h2>Add New Menu Item</h2>
+<form method="POST">
+  <label>Name:</label><br>
+  <input type="text" name="name" required><br><br>
+
+  <label>Category:</label><br>
+  <input type="text" name="category" required><br><br>
+
+  <label>Price:</label><br>
+  <input type="number" step="0.01" name="price" required><br><br>
+
+  <label>Description:</label><br>
+  <textarea name="description"></textarea><br><br>
+
+  <label>Image Path (e.g. images/chicken_biryani.jpg):</label><br>
+  <input type="text" name="image"><br><br>
+
+  <label>Calories:</label><br>
+  <input type="number" name="calories"><br><br>
+
+  <label>Protein (g):</label><br>
+  <input type="number" step="0.1" name="protein"><br><br>
+
+  <label>Fat (g):</label><br>
+  <input type="number" step="0.1" name="fat"><br><br>
+
+  <label>Carbs (g):</label><br>
+  <input type="number" step="0.1" name="carbs"><br><br>
+
+  <input type="submit" value="Add Item">
+</form>
+{% endblock %}

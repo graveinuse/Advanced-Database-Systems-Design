@@ -1,0 +1,81 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">🍢 Starters</h2>
+  <div class="row g-4">
+
+    <!-- Manchuria -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/manchuria.jpg') }}" class="card-img-top" alt="Manchuria">
+        <div class="card-body">
+          <h5 class="card-title">Manchuria</h5>
+          <p class="card-text">Crispy vegetable balls tossed in a tangy Indo-Chinese sauce.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Manchuria">
+            <input type="hidden" name="price" value="200">
+            <input type="hidden" name="image" value="images/manchuria.jpg">
+            <input type="hidden" name="description" value="Crispy vegetable balls tossed in a tangy Indo-Chinese sauce.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Chilli Chicken -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/chilli_chicken.jpg') }}" class="card-img-top" alt="Chilli Chicken">
+        <div class="card-body">
+          <h5 class="card-title">Chilli Chicken</h5>
+          <p class="card-text">Spicy and flavorful chicken pieces sautéed with peppers and onions.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Chilli Chicken">
+            <input type="hidden" name="price" value="200">
+            <input type="hidden" name="image" value="images/chilli_chicken.jpg">
+            <input type="hidden" name="description" value="Spicy and flavorful chicken pieces sautéed with peppers and onions.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Chicken Manchuria -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/chicken_manchuria.jpg') }}" class="card-img-top" alt="Chicken Manchuria">
+        <div class="card-body">
+          <h5 class="card-title">Chicken Manchuria</h5>
+          <p class="card-text">Succulent chicken balls in a savory and spicy sauce.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Chicken Manchuria">
+            <input type="hidden" name="price" value="200">
+            <input type="hidden" name="image" value="images/chicken_manchuria.jpg">
+            <input type="hidden" name="description" value="Succulent chicken balls in a savory and spicy sauce.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

@@ -1,0 +1,85 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<div class="menu-section">
+  <h2 class="text-center my-4">🍨 Desserts</h2>
+  <div class="container">
+    <div class="row g-4">
+
+      <!-- Gulab Jamun -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/gulab_jamun.jpg') }}" class="card-img-top" alt="Gulab Jamun">
+          <div class="card-body">
+            <h5 class="card-title">Gulab Jamun</h5>
+            <p class="card-text">Soft milk-solid balls soaked in saffron-infused sugar syrup.</p>
+            {% if session.get('username') %}
+            <form method="POST" action="{{ url_for('add_to_cart') }}">
+              <input type="hidden" name="item_name" value="Gulab Jamun">
+              <input type="hidden" name="price" value="120">
+              <input type="hidden" name="image" value="images/gulab_jamun.jpg">
+              <input type="hidden" name="description" value="Soft milk-solid balls soaked in saffron-infused sugar syrup.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form>
+            {% else %}
+            <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Rasmalai -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/rasmalai.jpg') }}" class="card-img-top" alt="Rasmalai">
+          <div class="card-body">
+            <h5 class="card-title">Rasmalai</h5>
+            <p class="card-text">Soft paneer patties soaked in sweetened thick milk, flavored with cardamom.</p>
+            {% if session.get('username') %}
+            <form method="POST" action="{{ url_for('add_to_cart') }}">
+              <input type="hidden" name="item_name" value="Rasmalai">
+              <input type="hidden" name="price" value="150">
+              <input type="hidden" name="image" value="images/rasmalai.jpg">
+              <input type="hidden" name="description" value="Soft paneer patties soaked in sweetened thick milk, flavored with cardamom.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form>
+            {% else %}
+            <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+      <!-- Double Ka Meetha -->
+      <div class="col-md-4">
+        <div class="card h-100 shadow">
+          <img src="{{ url_for('static', filename='images/double_ka_meetha.jpg') }}" class="card-img-top" alt="Double Ka Meetha">
+          <div class="card-body">
+            <h5 class="card-title">Double Ka Meetha</h5>
+            <p class="card-text">A Hyderabadi dessert made from fried bread, soaked in milk and topped with dry fruits.</p>
+            {% if session.get('username') %}
+            <form method="POST" action="{{ url_for('add_to_cart') }}">
+              <input type="hidden" name="item_name" value="Double Ka Meetha">
+              <input type="hidden" name="price" value="140">
+              <input type="hidden" name="image" value="images/double_ka_meetha.jpg">
+              <input type="hidden" name="description" value="A Hyderabadi dessert made from fried bread, soaked in milk and topped with dry fruits.">
+              <button type="submit" class="btn btn-success w-100 mt-2">
+                <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+              </button>
+            </form>
+            {% else %}
+            <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% endblock %}

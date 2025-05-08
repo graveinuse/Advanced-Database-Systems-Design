@@ -1,0 +1,53 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<!-- Login Background Wrapper -->
+<div class="login-background d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+
+  <!-- Glassmorphic Login Card -->
+  <div class="glass-card p-4 rounded-4" style="max-width: 500px; width: 100%;">
+    <h2 class="text-center mb-4">Welcome Back 👋</h2>
+    
+    <form method="POST">
+      <div class="mb-3">
+        <label class="form-label">Username</label>
+        <input type="text" name="username" class="form-control" placeholder="Enter your username" required>
+      </div>
+      <div class="mb-3 position-relative">
+        <label class="form-label">Password</label>
+        <input type="password" name="password" class="form-control" id="passwordInput" placeholder="••••••••" required>
+        <span class="position-absolute top-50 end-0 translate-middle-y me-3" style="cursor: pointer;" onclick="togglePassword()">
+          <i id="eyeIcon" class="bi bi-eye-slash fs-5"></i>
+        </span>
+      </div>
+      
+      <button type="submit" class="btn btn-success w-100">Sign In</button>
+    </form>
+
+    <p class="text-center mt-3 mb-0">
+      Don't have an account?
+      <a href="/signup" class="text-decoration-none fw-semibold text-primary">Sign up</a>
+    </p>
+  </div>
+
+</div>
+
+<script>
+  function togglePassword() {
+    const input = document.getElementById("passwordInput");
+    const icon = document.getElementById("eyeIcon");
+
+    if (input.type === "password") {
+      input.type = "text";
+      icon.classList.remove("bi-eye-slash");
+      icon.classList.add("bi-eye");
+    } else {
+      input.type = "password";
+      icon.classList.remove("bi-eye");
+      icon.classList.add("bi-eye-slash");
+    }
+  }
+</script>
+
+
+{% endblock %}

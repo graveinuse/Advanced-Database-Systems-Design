@@ -1,0 +1,55 @@
+{% extends 'home.html' %}
+{% block content %}
+
+<div class="container py-5">
+  <h2 class="text-center mb-4">🛒 Your Cart</h2>
+
+  {% if cart %}
+  <div class="row">
+    {% for item in cart %}
+    <div class="col-md-6 mb-4">
+      <div class="card shadow-sm">
+        <img src="{{ url_for('static', filename=item.image) }}" class="card-img-top" alt="{{ item.name }}">
+        <div class="card-body">
+          <h5 class="card-title">{{ item.name }}</h5>
+          <p class="card-text">{{ item.description }}</p>
+          <p class="card-text">Price: ₹{{ item.price }}</p>
+          <p class="card-text">Quantity: {{ item.quantity }}</p>
+
+          <form method="POST" action="{{ url_for('update_cart') }}" class="d-inline">
+            <input type="hidden" name="name" value="{{ item.name }}">
+            <input type="hidden" name="action" value="increase">
+            <button class="btn btn-sm btn-primary">➕</button>
+          </form>
+
+          <form method="POST" action="{{ url_for('update_cart') }}" class="d-inline">
+            <input type="hidden" name="name" value="{{ item.name }}">
+            <input type="hidden" name="action" value="decrease">
+            <button class="btn btn-sm btn-warning">➖</button>
+          </form>
+
+          <form method="POST" action="{{ url_for('update_cart') }}" class="d-inline">
+            <input type="hidden" name="name" value="{{ item.name }}">
+            <input type="hidden" name="action" value="remove">
+            <button class="btn btn-sm btn-danger">🗑 Remove</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+
+  <div class="text-end mt-4">
+    <h4>Total: ₹{{ total }}</h4>
+    <form method="POST" action="{{ url_for('checkout') }}">
+      <button type="submit" class="btn btn-success mt-2">✅ Checkout</button>
+    </form>
+    
+  </div>
+
+  {% else %}
+  <p class="text-center text-muted">Your cart is empty! 🛒</p>
+  {% endif %}
+</div>
+
+{% endblock %}

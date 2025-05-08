@@ -1,0 +1,81 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">🍛 Biryani's</h2>
+  <div class="row g-4">
+
+    <!-- Chicken Biryani -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/chicken_biryani.jpg') }}" class="card-img-top" alt="Chicken Biryani">
+        <div class="card-body">
+          <h5 class="card-title">Chicken Biryani</h5>
+          <p class="card-text">Aromatic basmati rice layered with tender chicken and spices.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Chicken Biryani">
+            <input type="hidden" name="price" value="220">
+            <input type="hidden" name="image" value="images/chicken_biryani.jpg">
+            <input type="hidden" name="description" value="Aromatic basmati rice layered with tender chicken and spices.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Goat Biryani -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/goat_biryani.jpg') }}" class="card-img-top" alt="Goat Biryani">
+        <div class="card-body">
+          <h5 class="card-title">Goat Biryani</h5>
+          <p class="card-text">Flavorful biryani made with succulent goat meat and fragrant rice.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Goat Biryani">
+            <input type="hidden" name="price" value="300">
+            <input type="hidden" name="image" value="images/goat_biryani.jpg">
+            <input type="hidden" name="description" value="Flavorful biryani made with succulent goat meat and fragrant rice.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Chicken 65 Biryani -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/chicken65_biryani.jpg') }}" class="card-img-top" alt="Chicken 65 Biryani">
+        <div class="card-body">
+          <h5 class="card-title">Chicken 65 Biryani</h5>
+          <p class="card-text">Spicy Chicken 65 pieces layered with aromatic biryani rice.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Chicken 65 Biryani">
+            <input type="hidden" name="price" value="150">
+            <input type="hidden" name="image" value="images/chicken65_biryani.jpg">
+            <input type="hidden" name="description" value="Spicy Chicken 65 pieces layered with aromatic biryani rice.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}

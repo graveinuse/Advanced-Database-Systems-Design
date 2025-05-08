@@ -1,0 +1,81 @@
+{% extends 'home.html' %}
+{% block content %}
+<div class="container py-5">
+  <h2 class="text-center mb-4">🥤 Beverages</h2>
+  <div class="row g-4">
+
+
+
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/mango_lassi.jpg') }}" class="card-img-top" alt="Masala Chai">
+        <div class="card-body">
+          <h5 class="card-title">Mango Lassi</h5>
+          <p class="card-text">Traditional Indian mango Flavoured Lassi</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Mango Lassi">
+            <input type="hidden" name="price" value="50">
+            <input type="hidden" name="image" value="images/mango_lassi.jpg">
+            <input type="hidden" name="description" value="Traditional Indian spiced tea brewed with aromatic herbs.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    <!-- Masala Chai -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/masala_chai.jpg') }}" class="card-img-top" alt="Masala Chai">
+        <div class="card-body">
+          <h5 class="card-title">Masala Chai</h5>
+          <p class="card-text">Traditional Indian spiced tea brewed with aromatic herbs.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Masala Chai">
+            <input type="hidden" name="price" value="50">
+            <input type="hidden" name="image" value="images/masala_chai.jpg">
+            <input type="hidden" name="description" value="Traditional Indian spiced tea brewed with aromatic herbs.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+    <!-- Jal Jeera -->
+    <div class="col-md-4">
+      <div class="card h-100 shadow">
+        <img src="{{ url_for('static', filename='images/jal_jeera.jpg') }}" class="card-img-top" alt="Jal Jeera">
+        <div class="card-body">
+          <h5 class="card-title">Jal Jeera</h5>
+          <p class="card-text">A tangy and spicy cumin-flavored refreshing drink.</p>
+          {% if session.get('username') %}
+          <form method="POST" action="{{ url_for('add_to_cart') }}">
+            <input type="hidden" name="item_name" value="Jal Jeera">
+            <input type="hidden" name="price" value="60">
+            <input type="hidden" name="image" value="images/jal_jeera.jpg">
+            <input type="hidden" name="description" value="A tangy and spicy cumin-flavored refreshing drink.">
+            <button type="submit" class="btn btn-success w-100 mt-2">
+              <i class="bi bi-cart-plus-fill me-1"></i> Add to Cart
+            </button>
+          </form>
+          {% else %}
+          <p class="text-muted mt-3"><i class="bi bi-lock-fill me-1"></i> Login to add to cart</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+{% endblock %}
